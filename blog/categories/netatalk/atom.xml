@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[I wax, I wane and then I pontificate]]></title>
-  <link href="http://SonnyRajagopalan.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Netatalk | I wax, I wane and then I pontificate]]></title>
+  <link href="http://SonnyRajagopalan.github.io/blog/categories/netatalk/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
   <updated>2014-01-19T10:48:44-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
@@ -19,16 +19,6 @@
     <updated>2014-01-19T10:46:04-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/01/19/awesome-way-to-back-up-your-mbps-into-your-ubuntu-machine</id>
     <content type="html"><![CDATA[<p>Been using <a href="http://d43.me/blog/1660/concisest-guide-to-setting-up-time-machine-server-on-ubuntu-server-12-04/">netatalk to setup a time machine server</a> on a Ubuntu 12.04 machine serving up space from an external HDD. Works well!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Begun Using Octopress. Feature-lean]]></title>
-    <link href="http://SonnyRajagopalan.github.io/blog/2014/01/17/begun-using-octopress-feature-lean/"/>
-    <updated>2014-01-17T15:23:31-05:00</updated>
-    <id>http://SonnyRajagopalan.github.io/blog/2014/01/17/begun-using-octopress-feature-lean</id>
-    <content type="html"><![CDATA[<p>I&rsquo;ve begun using  <a href="http://octopress.org/">Octopress</a>! I think the best  way to describe it
-is that it feels like it is feature-lean, but it is quite lean and nerdy way to blog.</p>
 ]]></content>
   </entry>
   

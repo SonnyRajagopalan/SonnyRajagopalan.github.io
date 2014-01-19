@@ -7,8 +7,14 @@
         <lastmod>2014-01-17T15:24:53-05:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://SonnyRajagopalan.github.io/blog/2014/01/19/awesome-way-to-back-up-your-mbps-into-your-ubuntu-machine/
+        </loc>
+        <lastmod>2014-01-19T10:48:33-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://SonnyRajagopalan.github.io/blog/archives/</loc>
-        <lastmod>2014-01-17T15:24:53-05:00</lastmod>
+        <lastmod>2014-01-19T10:48:33-05:00</lastmod>
     </url>
     <url>
         <loc>http://SonnyRajagopalan.github.io/robots.txt</loc>
@@ -16,6 +22,6 @@
     </url>
     <url>
         <loc>http://SonnyRajagopalan.github.io/</loc>
-        <lastmod>2014-01-17T15:24:53-05:00</lastmod>
+        <lastmod>2014-01-19T10:48:33-05:00</lastmod>
     </url>
 </urlset>
