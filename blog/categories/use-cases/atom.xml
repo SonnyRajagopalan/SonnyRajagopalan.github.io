@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Use Cases | I wax, I wane and then I pontificate]]></title>
+  <link href="http://SonnyRajagopalan.github.io/blog/categories/use-cases/atom.xml" rel="self"/>
+  <link href="http://SonnyRajagopalan.github.io/"/>
+  <updated>2014-02-04T10:37:08-05:00</updated>
+  <id>http://SonnyRajagopalan.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GIMP Use Cases for Photographers]]></title>
+    <link href="http://SonnyRajagopalan.github.io/blog/2014/01/20/gimp-use-cases-for-photographers/"/>
+    <updated>2014-01-20T11:14:08-05:00</updated>
+    <id>http://SonnyRajagopalan.github.io/blog/2014/01/20/gimp-use-cases-for-photographers</id>
+    <content type="html"><![CDATA[<p>I found GIMP 2.8 useful for the following workflow tasks that typical photographers will want:</p>
+
+<ul>
+<li>Contrast mask</li>
+<li>Image sharpening (using <em>&lt;Image>-Filters-Enhance-Sharpen</em> or <em>&lt;Image>-Filters-Enhance-Unsharp mask</em>)</li>
+<li>Smart sharpening (when you don&rsquo;t want that silly look that comes from sharpening everything)</li>
+<li>Color balancing</li>
+<li>Correcting muddy pictures (auto levels)</li>
+<li>Correcting blemishes (scratches and other artifacts)</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
