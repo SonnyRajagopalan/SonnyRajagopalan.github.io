@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Work | I wax, I wane and then I pontificate]]></title>
-  <link href="http://SonnyRajagopalan.github.io/blog/categories/work/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Github | I wax, I wane and then I pontificate]]></title>
+  <link href="http://SonnyRajagopalan.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
   <updated>2014-02-04T11:05:18-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
@@ -24,16 +24,6 @@ rake deploy and the username and password  don&rsquo;t seem to work. Specificall
 a <code>fatal: Authentication failed</code> error.</p>
 
 <p>To fix this problem, see this <a href="http://stackoverflow.com/questions/17659206/git-push-authentication-failed">SO article</a> and this <a href="https://help.github.com/articles/https-cloning-errors#provide-access-token-if-2fa-enabled">GitHub FAQ</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Goodies for Today]]></title>
-    <link href="http://SonnyRajagopalan.github.io/blog/2014/02/04/goodies-for-today/"/>
-    <updated>2014-02-04T10:33:53-05:00</updated>
-    <id>http://SonnyRajagopalan.github.io/blog/2014/02/04/goodies-for-today</id>
-    <content type="html"><![CDATA[<p>Just discovered  <a href="https://www.mapbox.com/">Mapbox.js</a>. It is an  absolutely delightful way
-for incorporating maps into your web-based applications.</p>
 ]]></content>
   </entry>
   
