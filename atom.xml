@@ -4,7 +4,7 @@
   <title><![CDATA[So I don't forget things...]]></title>
   <link href="http://SonnyRajagopalan.github.io/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-02-04T11:31:54-05:00</updated>
+  <updated>2014-02-04T11:54:47-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -25,14 +25,19 @@ but the  last time I developed  web applications was over  6 years ago, and  the
 <p>With         that        in         mind,         I         checked        out         one
 <a href="https://www.meteor.com/examples/leaderboard">example</a> they have on  their website, and it
 is quite  clear that they are  really trying to simplify  web applications. I want  to try
-it. Is  this a heroku  environment and development  environment that is  fully integrated?
-Really? more than using Ruby on Rails with the heroku gem?</p>
+it.  Is  this  like  a  heroku  environment and  development  environment  that  is  fully
+integrated?  Really? more than using Ruby on Rails with the heroku gem?</p>
 
 <p>Here is the help text from the download (done via <code>$ curl http://install.meteor.com | sh</code>):</p>
 
-<p>  $ meteor create ~/my_cool_app
-  $ cd ~/my_cool_app
-  $ meteor</p>
+<figure class='code'><figcaption><span>shell code for creating a meteor app</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>  <span class="nv">$ </span>meteor create ~/my_cool_app
+</span><span class='line'>  <span class="nv">$ </span><span class="nb">cd</span> ~/my_cool_app
+</span><span class='line'>  <span class="nv">$ </span>meteor
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Wow!</p>
 ]]></content>

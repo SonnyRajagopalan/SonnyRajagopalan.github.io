@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Meteor | So I don't forget things...]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/meteor/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-02-04T11:31:54-05:00</updated>
+  <updated>2014-02-04T11:54:47-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -25,16 +25,17 @@ but the  last time I developed  web applications was over  6 years ago, and  the
 <p>With         that        in         mind,         I         checked        out         one
 <a href="https://www.meteor.com/examples/leaderboard">example</a> they have on  their website, and it
 is quite  clear that they are  really trying to simplify  web applications. I want  to try
-it. Is  this a heroku  environment and development  environment that is  fully integrated?
-Really? more than using Ruby on Rails with the heroku gem?</p>
+it.  Is  this  like  a  heroku  environment and  development  environment  that  is  fully
+integrated?  Really? more than using Ruby on Rails with the heroku gem?</p>
 
 <p>Here is the help text from the download (done via <code>$ curl http://install.meteor.com | sh</code>):</p>
 
-<p>  $ meteor create ~/my_cool_app
+<p><code>sh shell code for creating a meteor app
+  $ meteor create ~/my_cool_app
   $ cd ~/my_cool_app
-  $ meteor</p>
-
-<p>Wow!</p>
+  $ meteor
+</code>
+Wow!</p>
 ]]></content>
   </entry>
   
