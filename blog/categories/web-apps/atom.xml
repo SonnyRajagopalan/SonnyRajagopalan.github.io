@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Web Apps | So I don't forget things...]]></title>
+  <link href="http://SonnyRajagopalan.github.io/blog/categories/web-apps/atom.xml" rel="self"/>
+  <link href="http://SonnyRajagopalan.github.io/"/>
+  <updated>2014-02-04T11:31:54-05:00</updated>
+  <id>http://SonnyRajagopalan.github.io/</id>
+  <author>
+    <name><![CDATA[Sonny Rajagopalan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Meteor: A Better Way to Build Apps]]></title>
+    <link href="http://SonnyRajagopalan.github.io/blog/2014/02/04/meteor-a-better-way-to-build-apps/"/>
+    <updated>2014-02-04T11:17:57-05:00</updated>
+    <id>http://SonnyRajagopalan.github.io/blog/2014/02/04/meteor-a-better-way-to-build-apps</id>
+    <content type="html"><![CDATA[<p><a href="https://www.meteor.com/">Meteor</a> is  &ldquo;A better way  to build apps.&rdquo;   Sounds interesting,
+but the  last time I developed  web applications was over  6 years ago, and  the notion of
+&ldquo;simple&rdquo;  has  changed  for me  significantly.</p>
+
+<p>With         that        in         mind,         I         checked        out         one
+<a href="https://www.meteor.com/examples/leaderboard">example</a> they have on  their website, and it
+is quite  clear that they are  really trying to simplify  web applications. I want  to try
+it. Is  this a heroku  environment and development  environment that is  fully integrated?
+Really? more than using Ruby on Rails with the heroku gem?</p>
+
+<p>Here is the help text from the download (done via <code>$ curl http://install.meteor.com | sh</code>):</p>
+
+<p>  $ meteor create ~/my_cool_app
+  $ cd ~/my_cool_app
+  $ meteor</p>
+
+<p>Wow!</p>
+]]></content>
+  </entry>
+  
+</feed>
