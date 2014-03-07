@@ -96,9 +96,8 @@ pure NFS (from NFS and Samba). As part of this &hellip;">
 pure NFS (from NFS and  Samba). As part of this upgrade, I moved  to pure NFSv4 client for
 mounting a  number of exports on  the Ubuntu desktop I  used as my main  computer (the NFS
 server does both versions 3 and 4). However, the NFS exports are imported as NFSv3 clients
-on   my   MacBook   Pros,  because   my   <a href="https://discussions.apple.com/thread/4931123">OS   X   Mavericks   10.9.2  boxes   don&rsquo;t   do
-NFSv4</a>   (specifically,  they   do  not   do
-IDMAP/NFS domain matching  and UID/GID mapping, which results in  unopenable, but property
+on   my   MacBook   Pros,  because   my   <a href="https://discussions.apple.com/thread/4931123">OS   X   Mavericks   10.9.2  boxes   don&rsquo;t   do NFSv4</a>   (specifically,  they   do  not   do
+IDMAP/NFS domain matching  and UID/GID mapping, which results in  unopenable, but otherwise
 mounted NFS imports).</p>
 
 <p>Happily, there are some benefits of running NFSv4  on the clients.  Let&rsquo;s take a look at a
