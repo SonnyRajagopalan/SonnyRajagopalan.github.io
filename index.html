@@ -9,8 +9,8 @@
   <meta name="author" content="Sonny Rajagopalan">
 
   
-  <meta name="description" content="Meteor is &ldquo;A better way to build apps.&rdquo; Sounds interesting,
-but the last time I developed web applications was over 6 years ago, and the &hellip;">
+  <meta name="description" content="I recently switched my home &ldquo;NAS&rdquo; (a Ubuntu 12.04LTS server with USB external HDDs) to
+pure NFS (from NFS and Samba). As part of this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +72,281 @@ but the last time I developed web applications was over 6 years ago, and the &he
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/06/nfsv3-vs-nfsv4-on-ubuntu-12-dot-04/">NFSv3 vs. NFSv4 on Ubuntu 12.04</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T15:53:02-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I recently  switched my home &ldquo;NAS&rdquo;  (a Ubuntu 12.04LTS  server with USB external  HDDs) to
+pure NFS (from NFS and  Samba). As part of this upgrade, I moved  to pure NFSv4 client for
+mounting a  number of exports on  the Ubuntu desktop I  used as my main  computer (the NFS
+server does both versions 3 and 4). However, the NFS exports are imported as NFSv3 clients
+on   my   MacBook   Pros,  because   my   <a href="https://discussions.apple.com/thread/4931123">OS   X   Mavericks   10.9.2  boxes   don&rsquo;t   do
+NFSv4</a>   (specifically,  they   do  not   do
+IDMAP/NFS domain matching  and UID/GID mapping, which results in  unopenable, but property
+mounted NFS imports).</p>
+
+<p>Happily, there are some benefits of running NFSv4  on the clients.  Let&rsquo;s take a look at a
+network services profile on the Ubuntu 12.04 NFS v3 client:</p>
+
+<figure class='code'><figcaption><span>netstat -tulpn output when running NFSv3 on the NFS client</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>Active Internet connections <span class="o">(</span>only servers<span class="o">)</span>
+</span><span class='line'>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+</span><span class='line'>tcp        0      0 0.0.0.0:53674           0.0.0.0:*               LISTEN      952/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:812             0.0.0.0:*               LISTEN      1059/ypbind
+</span><span class='line'>tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      768/rpcbind
+</span><span class='line'>tcp        0      0 0.0.0.0:44336           0.0.0.0:*               LISTEN      955/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:43924           0.0.0.0:*               LISTEN      951/rpc.statd
+</span><span class='line'>tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      1460/dnsmasq
+</span><span class='line'>tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      995/sshd
+</span><span class='line'>tcp        0      0 0.0.0.0:631             0.0.0.0:*               LISTEN      1150/cupsd
+</span><span class='line'>tcp        0      0 0.0.0.0:35961           0.0.0.0:*               LISTEN      -
+</span><span class='line'>tcp        0      0 0.0.0.0:60986           0.0.0.0:*               LISTEN      949/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:49469           0.0.0.0:*               LISTEN      954/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:59199           0.0.0.0:*               LISTEN      956/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:53922           0.0.0.0:*               LISTEN      953/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:35298           0.0.0.0:*               LISTEN      942/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:50117           0.0.0.0:*               LISTEN      950/rpc.statd
+</span><span class='line'>tcp6       0      0 :::53545                :::*                    LISTEN      950/rpc.statd
+</span><span class='line'>tcp6       0      0 :::60299                :::*                    LISTEN      952/rpc.statd
+</span><span class='line'>tcp6       0      0 :::111                  :::*                    LISTEN      768/rpcbind
+</span><span class='line'>tcp6       0      0 :::54993                :::*                    LISTEN      953/rpc.statd
+</span><span class='line'>tcp6       0      0 :::39667                :::*                    LISTEN      954/rpc.statd
+</span><span class='line'>tcp6       0      0 :::51604                :::*                    LISTEN      949/rpc.statd
+</span><span class='line'>tcp6       0      0 :::22                   :::*                    LISTEN      995/sshd
+</span><span class='line'>tcp6       0      0 :::631                  :::*                    LISTEN      1150/cupsd
+</span><span class='line'>tcp6       0      0 :::52539                :::*                    LISTEN      955/rpc.statd
+</span><span class='line'>tcp6       0      0 :::41116                :::*                    LISTEN      -
+</span><span class='line'>tcp6       0      0 :::45442                :::*                    LISTEN      951/rpc.statd
+</span><span class='line'>tcp6       0      0 :::51109                :::*                    LISTEN      956/rpc.statd
+</span><span class='line'>tcp6       0      0 :::33029                :::*                    LISTEN      942/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:53            0.0.0.0:*                           1460/dnsmasq
+</span><span class='line'>udp        0      0 0.0.0.0:111             0.0.0.0:*                           768/rpcbind
+</span><span class='line'>udp        0      0 0.0.0.0:59634           0.0.0.0:*                           1166/avahi-daemon:
+</span><span class='line'>udp        0      0 0.0.0.0:49528           0.0.0.0:*                           956/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:59840           0.0.0.0:*                           951/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:35369           0.0.0.0:*                           -
+</span><span class='line'>udp        0      0 0.0.0.0:47693           0.0.0.0:*                           952/rpc.statd
+</span><span class='line'>udp    38400      0 0.0.0.0:631             0.0.0.0:*                           1150/cupsd
+</span><span class='line'>udp        0      0 127.0.0.1:694           0.0.0.0:*                           942/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:701           0.0.0.0:*                           949/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:702           0.0.0.0:*                           950/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:703           0.0.0.0:*                           951/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:704           0.0.0.0:*                           952/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:705           0.0.0.0:*                           953/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:706           0.0.0.0:*                           954/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:707           0.0.0.0:*                           955/rpc.statd
+</span><span class='line'>udp        0      0 127.0.0.1:708           0.0.0.0:*                           956/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:58074           0.0.0.0:*                           942/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:54027           0.0.0.0:*                           949/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:811             0.0.0.0:*                           1059/ypbind
+</span><span class='line'>udp        0      0 0.0.0.0:812             0.0.0.0:*                           1059/ypbind
+</span><span class='line'>udp        0      0 0.0.0.0:936             0.0.0.0:*                           768/rpcbind
+</span><span class='line'>udp        0      0 0.0.0.0:33714           0.0.0.0:*                           955/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:5353            0.0.0.0:*                           1166/avahi-daemon:
+</span><span class='line'>udp        0      0 0.0.0.0:60682           0.0.0.0:*                           953/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:40383           0.0.0.0:*                           950/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:40634           0.0.0.0:*                           954/rpc.statd
+</span><span class='line'>udp6       0      0 :::111                  :::*                                768/rpcbind
+</span><span class='line'>udp6       0      0 :::39168                :::*                                952/rpc.statd
+</span><span class='line'>udp6       0      0 :::43314                :::*                                949/rpc.statd
+</span><span class='line'>udp6       0      0 :::41446                :::*                                942/rpc.statd
+</span><span class='line'>udp6       0      0 :::936                  :::*                                768/rpcbind
+</span><span class='line'>udp6       0      0 :::54250                :::*                                950/rpc.statd
+</span><span class='line'>udp6       0      0 :::37896                :::*                                953/rpc.statd
+</span><span class='line'>udp6       0      0 :::56432                :::*                                951/rpc.statd
+</span><span class='line'>udp6       0      0 :::34005                :::*                                955/rpc.statd
+</span><span class='line'>udp6       0      0 :::5353                 :::*                                1166/avahi-daemon:
+</span><span class='line'>udp6       0      0 :::46367                :::*                                1166/avahi-daemon:
+</span><span class='line'>udp6       0      0 :::58666                :::*                                -
+</span><span class='line'>udp6       0      0 :::38562                :::*                                956/rpc.statd
+</span><span class='line'>udp6       0      0 :::42972                :::*                                954/rpc.statd
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yes,  long and  tedious. Can  you imagine  trying to  firewall this  profile of  services?
+Moreover, the ports are not exactly fixed.</p>
+
+<p>Now, let&rsquo;s  look at the network  service profile on the  Ubunu 12.04 LTS NFS  client after
+moving to NFSv4:</p>
+
+<figure class='code'><figcaption><span>netstat -tulpn output when running NFSv4 on the NFS client</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>Active Internet connections <span class="o">(</span>only servers<span class="o">)</span>
+</span><span class='line'>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+</span><span class='line'>tcp        0      0 0.0.0.0:56200           0.0.0.0:*               LISTEN      982/rpc.statd
+</span><span class='line'>tcp        0      0 0.0.0.0:812             0.0.0.0:*               LISTEN      1059/ypbind
+</span><span class='line'>tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      834/rpcbind
+</span><span class='line'>tcp        0      0 0.0.0.0:33264           0.0.0.0:*               LISTEN      -
+</span><span class='line'>tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      1341/dnsmasq
+</span><span class='line'>tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1030/sshd
+</span><span class='line'>tcp        0      0 0.0.0.0:631             0.0.0.0:*               LISTEN      1125/cupsd
+</span><span class='line'>tcp6       0      0 :::58985                :::*                    LISTEN      982/rpc.statd
+</span><span class='line'>tcp6       0      0 :::111                  :::*                    LISTEN      834/rpcbind
+</span><span class='line'>tcp6       0      0 :::22                   :::*                    LISTEN      1030/sshd
+</span><span class='line'>tcp6       0      0 :::631                  :::*                    LISTEN      1125/cupsd
+</span><span class='line'>tcp6       0      0 :::50681                :::*                    LISTEN      -
+</span><span class='line'>udp        0      0 127.0.0.1:53            0.0.0.0:*                           1341/dnsmasq
+</span><span class='line'>udp        0      0 0.0.0.0:111             0.0.0.0:*                           834/rpcbind
+</span><span class='line'>udp    38400      0 0.0.0.0:631             0.0.0.0:*                           1125/cupsd
+</span><span class='line'>udp        0      0 127.0.0.1:734           0.0.0.0:*                           982/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:811             0.0.0.0:*                           1059/ypbind
+</span><span class='line'>udp        0      0 0.0.0.0:812             0.0.0.0:*                           1059/ypbind
+</span><span class='line'>udp        0      0 0.0.0.0:56219           0.0.0.0:*                           1153/avahi-daemon:
+</span><span class='line'>udp        0      0 0.0.0.0:954             0.0.0.0:*                           834/rpcbind
+</span><span class='line'>udp        0      0 0.0.0.0:54290           0.0.0.0:*                           982/rpc.statd
+</span><span class='line'>udp        0      0 0.0.0.0:5353            0.0.0.0:*                           2819/chrome --type<span class="o">=</span>
+</span><span class='line'>udp        0      0 0.0.0.0:5353            0.0.0.0:*                           1153/avahi-daemon:
+</span><span class='line'>udp6       0      0 :::51311                :::*                                1153/avahi-daemon:
+</span><span class='line'>udp6       0      0 :::111                  :::*                                834/rpcbind
+</span><span class='line'>udp6       0      0 :::954                  :::*                                834/rpcbind
+</span><span class='line'>udp6       0      0 :::5353                 :::*                                2819/chrome --type<span class="o">=</span>
+</span><span class='line'>udp6       0      0 :::5353                 :::*                                1153/avahi-daemon:
+</span><span class='line'>udp6       0      0 :::52888                :::*                                982/rpc.statd
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yes, much simpler.</p>
+
+<p>However, this service profile is still unmanageable, considering the number of services in
+the  high   ports,  and   some  of  them   with  no  program   associated.   <a href="http://serverfault.com/questions/85558/netstat-ntap-doesnt-show-pid-process-name-for-some-connections">Per   an  SO article</a>,
+it appears like these typically high-numbered ports are because of NFS running as a kernel
+process. I dug into  this a little deeper: these high ports are  random (by default and by
+NFS  design),  butt  turns   out  you  can  control  <a href="http://bryanw.tk/2012/specify-nfs-ports-ubuntu-linux/">which  ports   are  opened  in  your server</a>.</p>
+
+<p>BUT: I can firewall on the client side with all of the above, but can&rsquo;t yet firewall on the server because I have to run NFSv3 along with NFSv4 so that my OS X clients can access the exports. Grrr&hellip;</p>
+
+<p>I need to investigate how or if the  performance on the Ubuntu 12.04LTS client improved as
+a result of moving to NFSv4.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/04/meteor-a-better-way-to-build-apps/">Meteor: A Better Way to Build Apps</a></h1>
     
     
@@ -103,7 +378,7 @@ but the  last time I developed  web applications was over  6 years ago, and  the
 <a href="https://www.meteor.com/examples/leaderboard">example</a> they have on  their website, and it
 is quite  clear that they are  really trying to simplify  web applications. I want  to try
 it.  Is  this  like  a  heroku  environment and  development  environment  that  is  fully
-integrated?  Really? more than using Ruby on Rails with the heroku gem?</p>
+integrated?  Really? More than using Ruby on Rails with the heroku gem?</p>
 
 <p>Here is the help text from the download (done via <code>$ curl http://install.meteor.com | sh</code>):</p>
 
@@ -334,6 +609,10 @@ is that it feels like it is feature-lean, but it is quite lean and nerdy way to 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/06/nfsv3-vs-nfsv4-on-ubuntu-12-dot-04/">NFSv3 vs. NFSv4 on Ubuntu 12.04</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/04/meteor-a-better-way-to-build-apps/">Meteor: A Better Way to Build Apps</a>
       </li>
     
@@ -347,10 +626,6 @@ is that it feels like it is feature-lean, but it is quite lean and nerdy way to 
     
       <li class="post">
         <a href="/blog/2014/01/20/gimp-use-cases-for-photographers/">GIMP Use Cases for Photographers</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/19/awesome-way-to-back-up-your-mbps-into-your-ubuntu-machine/">Awesome Way to Back Up Your MBPs Into Your Ubuntu Machine</a>
       </li>
     
   </ul>

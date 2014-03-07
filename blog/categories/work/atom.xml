@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Work | So I don't forget things...]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/work/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-02-04T11:54:47-05:00</updated>
+  <updated>2014-03-07T18:50:37-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -26,7 +26,7 @@ but the  last time I developed  web applications was over  6 years ago, and  the
 <a href="https://www.meteor.com/examples/leaderboard">example</a> they have on  their website, and it
 is quite  clear that they are  really trying to simplify  web applications. I want  to try
 it.  Is  this  like  a  heroku  environment and  development  environment  that  is  fully
-integrated?  Really? more than using Ruby on Rails with the heroku gem?</p>
+integrated?  Really? More than using Ruby on Rails with the heroku gem?</p>
 
 <p>Here is the help text from the download (done via <code>$ curl http://install.meteor.com | sh</code>):</p>
 
