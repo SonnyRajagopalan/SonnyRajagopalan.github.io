@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Photographers | So I don't forget things...]]></title>
+  <title><![CDATA[Category: photographers | So I don't forget things...]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/photographers/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-07T18:56:04-05:00</updated>
+  <updated>2014-03-07T19:30:28-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[GIMP Use Cases for Photographers]]></title>
+    <title type="html"><![CDATA[GIMP use cases for photographers]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/01/20/gimp-use-cases-for-photographers/"/>
     <updated>2014-01-20T11:14:08-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/01/20/gimp-use-cases-for-photographers</id>

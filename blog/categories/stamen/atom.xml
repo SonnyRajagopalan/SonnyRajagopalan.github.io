@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Stamen | So I don't forget things...]]></title>
+  <title><![CDATA[Category: stamen | So I don't forget things...]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/stamen/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-07T18:56:04-05:00</updated>
+  <updated>2014-03-07T19:30:28-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Goodies for Today]]></title>
+    <title type="html"><![CDATA[Goodies for today]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/02/04/goodies-for-today/"/>
     <updated>2014-02-04T10:33:53-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/02/04/goodies-for-today</id>

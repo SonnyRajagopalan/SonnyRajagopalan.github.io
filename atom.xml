@@ -4,13 +4,12 @@
   <title><![CDATA[So I don't forget things...]]></title>
   <link href="http://SonnyRajagopalan.github.io/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-07T18:56:04-05:00</updated>
+  <updated>2014-03-07T19:30:28-05:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -261,7 +260,7 @@ a result of moving to NFSv4.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Meteor: A Better Way to Build Apps]]></title>
+    <title type="html"><![CDATA[Meteor: A better way to build apps]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/02/04/meteor-a-better-way-to-build-apps/"/>
     <updated>2014-02-04T11:17:57-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/02/04/meteor-a-better-way-to-build-apps</id>
@@ -291,7 +290,7 @@ integrated?  Really? More than using Ruby on Rails with the heroku gem?</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[GitHub Command Line Push Errors?]]></title>
+    <title type="html"><![CDATA[GitHub command line push errors?]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/02/04/github-command-line-push-errors/"/>
     <updated>2014-02-04T11:01:29-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/02/04/github-command-line-push-errors</id>
@@ -305,7 +304,7 @@ a <code>fatal: Authentication failed</code> error.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Goodies for Today]]></title>
+    <title type="html"><![CDATA[Goodies for today]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/02/04/goodies-for-today/"/>
     <updated>2014-02-04T10:33:53-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/02/04/goodies-for-today</id>
@@ -315,7 +314,7 @@ for incorporating maps into your web-based applications.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[GIMP Use Cases for Photographers]]></title>
+    <title type="html"><![CDATA[GIMP use cases for photographers]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/01/20/gimp-use-cases-for-photographers/"/>
     <updated>2014-01-20T11:14:08-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/01/20/gimp-use-cases-for-photographers</id>
@@ -334,7 +333,7 @@ for incorporating maps into your web-based applications.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Awesome Way to Back Up Your MBPs Into Your Ubuntu Machine]]></title>
+    <title type="html"><![CDATA[Awesome way to back up your MBPs into your Ubuntu machine]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/01/19/awesome-way-to-back-up-your-mbps-into-your-ubuntu-machine/"/>
     <updated>2014-01-19T10:46:04-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/01/19/awesome-way-to-back-up-your-mbps-into-your-ubuntu-machine</id>
@@ -343,7 +342,7 @@ for incorporating maps into your web-based applications.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Begun Using Octopress. Feature-lean]]></title>
+    <title type="html"><![CDATA[Begun using Octopress. Feature-lean]]></title>
     <link href="http://SonnyRajagopalan.github.io/blog/2014/01/17/begun-using-octopress-feature-lean/"/>
     <updated>2014-01-17T15:23:31-05:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/01/17/begun-using-octopress-feature-lean</id>
