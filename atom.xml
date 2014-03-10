@@ -4,13 +4,39 @@
   <title><![CDATA[blah!]]></title>
   <link href="http://SonnyRajagopalan.github.io/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-07T19:35:24-05:00</updated>
+  <updated>2014-03-10T09:52:52-04:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
     
   </author>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Theron and ACT++ for Concurrent C++ with Actors]]></title>
+    <link href="http://SonnyRajagopalan.github.io/blog/2014/03/10/theron-and-act-plus-plus-for-concurrent-c-plus-plus-with-actors/"/>
+    <updated>2014-03-10T09:47:44-04:00</updated>
+    <id>http://SonnyRajagopalan.github.io/blog/2014/03/10/theron-and-act-plus-plus-for-concurrent-c-plus-plus-with-actors</id>
+    <content type="html"><![CDATA[<p>I wrote a [telecommunications stub for managing timers and a signaling stack a while ago] (<a href="https://github.com/SonnyRajagopalan/TimerAndCallback">https://github.com/SonnyRajagopalan/TimerAndCallback</a>). If I wrote it now, I would probably use the clean interfaces of <a href="http://www.theron-library.com">Theron</a> (or ACT++). The biggest issue in my signaling application was the mapping of an incoming message to the right sender and struct. Will this problem be less complex in Theron?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[So, you want to join a startup?]]></title>
+    <link href="http://SonnyRajagopalan.github.io/blog/2014/03/07/x/"/>
+    <updated>2014-03-07T20:01:51-05:00</updated>
+    <id>http://SonnyRajagopalan.github.io/blog/2014/03/07/x</id>
+    <content type="html"><![CDATA[<p>So, you are an  amazing technie/engineer and you are bustling with  ideas. You think, &ldquo;I&rsquo;d
+like to join a startup to make a  pile of money.&rdquo; Well, think harder. Unless otherwise you
+want to  start your own  company, the reality is  something rather different.  Things have
+gotten         quite        out-of-hand         in        recent         times,        and
+<a href="http://www.businessinsider.com/this-22-year-veteran-of-startups-says-employees-are-getting-screwed-by-vcs-and-ceos-2014-3?fb_action_ids=427078274093582&amp;fb_action_types=og.recommends&amp;fb_source=other_multiline&amp;action_object_map=%7B%22427078274093582%22%3A225001791037273%7D&amp;action_type_map=%7B%22427078274093582%22%3A%22og.recommends%22%7D&amp;action_ref_map=%5B%5D">other</a>
+<a href="http://rob.by/2013/negotiating-your-startup-job-offer/">folks</a>                     [have]
+(<a href="http://venturehacks.com/articles/option-pool-shuffle#market">http://venturehacks.com/articles/option-pool-shuffle#market</a>)
+<a href="http://cdixon.org/2009/08/27/the-one-number-you-should-know-about-your-equity-grant/">spoken</a>
+about the issue.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[NFSv3 vs. NFSv4 on Ubuntu 12.04]]></title>

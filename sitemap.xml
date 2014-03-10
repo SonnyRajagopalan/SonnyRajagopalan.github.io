@@ -41,12 +41,22 @@
         <lastmod>2014-03-07T19:34:23-05:00</lastmod>
     </url>
     <url>
+        <loc>http://SonnyRajagopalan.github.io/blog/2014/03/07/x/</loc>
+        <lastmod>2014-03-07T20:06:47-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://SonnyRajagopalan.github.io/blog/2014/03/10/theron-and-act-plus-plus-for-concurrent-c-plus-plus-with-actors/
+        </loc>
+        <lastmod>2014-03-10T09:52:43-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://SonnyRajagopalan.github.io/blog/</loc>
-        <lastmod>2014-03-07T19:34:49-05:00</lastmod>
+        <lastmod>2014-03-10T09:52:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://SonnyRajagopalan.github.io/blog/archives/</loc>
-        <lastmod>2014-03-07T19:34:49-05:00</lastmod>
+        <lastmod>2014-03-10T09:52:43-04:00</lastmod>
     </url>
     <url>
         <loc>http://SonnyRajagopalan.github.io/robots.txt</loc>
@@ -54,6 +64,6 @@
     </url>
     <url>
         <loc>http://SonnyRajagopalan.github.io/</loc>
-        <lastmod>2014-03-07T19:34:49-05:00</lastmod>
+        <lastmod>2014-03-10T09:52:43-04:00</lastmod>
     </url>
 </urlset>
