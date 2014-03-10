@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Theron | blah!]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/theron/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-10T09:52:52-04:00</updated>
+  <updated>2014-03-10T09:58:57-04:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://SonnyRajagopalan.github.io/blog/2014/03/10/theron-and-act-plus-plus-for-concurrent-c-plus-plus-with-actors/"/>
     <updated>2014-03-10T09:47:44-04:00</updated>
     <id>http://SonnyRajagopalan.github.io/blog/2014/03/10/theron-and-act-plus-plus-for-concurrent-c-plus-plus-with-actors</id>
-    <content type="html"><![CDATA[<p>I wrote a [telecommunications stub for managing timers and a signaling stack a while ago] (<a href="https://github.com/SonnyRajagopalan/TimerAndCallback">https://github.com/SonnyRajagopalan/TimerAndCallback</a>). If I wrote it now, I would probably use the clean interfaces of <a href="http://www.theron-library.com">Theron</a> (or ACT++). The biggest issue in my signaling application was the mapping of an incoming message to the right sender and struct. Will this problem be less complex in Theron?</p>
+    <content type="html"><![CDATA[<p>I wrote a <a href="https://github.com/SonnyRajagopalan/TimerAndCallback">telecommunications stub for managing timers and a signaling stack a while ago</a>. If I wrote it now, I would probably use the clean interfaces of <a href="http://www.theron-library.com">Theron</a> (or ACT++). The biggest issue in my signaling application was the mapping of an incoming message to the right sender and struct. Will this problem be less complex in Theron?</p>
 ]]></content>
   </entry>
   
