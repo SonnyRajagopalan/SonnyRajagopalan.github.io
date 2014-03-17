@@ -4,7 +4,7 @@
   <title><![CDATA[Category: BIOS | blah!]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/bios/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-17T19:15:03-04:00</updated>
+  <updated>2014-03-17T19:16:22-04:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -30,7 +30,7 @@ these days, and  that was the first issue.  When I finally found one,  the <a hr
 <p>What did  work was  the help on  the <a href="https://wiki.ubuntu.com/DellBIOS">ubuntu  wiki</a>. The
 specific method that  worked is titled <em>Upgrading the BIOS  using Dell&rsquo;s &ldquo;biosdisk&rdquo; and
 &ldquo;syslinux memdisk&rdquo;</em>, with one correction. My Grub did not recognize <code>/boot/memdisk</code> or
-<code>/boot/*.img</code>  as  valid   files.  The  correct  filenames  are   <code>/memdisk</code>  and  /*.img`
+<code>/boot/*.img</code>  as  valid   files.  The  correct  filenames  are   <code>/memdisk</code>  and  <code>/*.img</code>
 respectively.</p>
 ]]></content>
   </entry>
