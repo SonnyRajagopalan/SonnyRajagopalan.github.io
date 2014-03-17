@@ -4,13 +4,35 @@
   <title><![CDATA[blah!]]></title>
   <link href="http://SonnyRajagopalan.github.io/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-10T10:04:49-04:00</updated>
+  <updated>2014-03-17T19:15:03-04:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
     
   </author>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Upgrading the BIOS on my Ubuntu Dell machine]]></title>
+    <link href="http://SonnyRajagopalan.github.io/blog/2014/03/17/upgrading-the-bios-on-my-ubuntu-dell-machine/"/>
+    <updated>2014-03-17T19:07:25-04:00</updated>
+    <id>http://SonnyRajagopalan.github.io/blog/2014/03/17/upgrading-the-bios-on-my-ubuntu-dell-machine</id>
+    <content type="html"><![CDATA[<p>My Dell Optiplex 755/SFF running Ubuntu 12.04LTS had been getting a little noisier lately,
+and I read somewhere that a BIOS update could fix that (I can&rsquo;t figure out why).</p>
+
+<p>Anyway, the only way to  do that on a Ubuntu machine is to create  a DOS bootable disk and
+then run the  BIOS update EXE file from  the DELL site. Unfortunately, not a  lot of folks
+run into  this issue,  considering the  number of  clear instructions  on the  matter. The
+biggest issue is to create a bootable DOS  disk. I don&rsquo;t usually carry thumb drives around
+these days, and  that was the first issue.  When I finally found one,  the <a href="http://www.chavers.us/robs-place-mainmenu-42/17-ubuntu-notes/46-easiest-way-to-create-a-usb-dos-boot-disk-using-linux"><code>unetbootin</code> + FreeDOS route</a> route just did not work for me.</p>
+
+<p>What did  work was  the help on  the <a href="https://wiki.ubuntu.com/DellBIOS">ubuntu  wiki</a>. The
+specific method that  worked is titled <em>Upgrading the BIOS  using Dell&rsquo;s &ldquo;biosdisk&rdquo; and
+&ldquo;syslinux memdisk&rdquo;</em>, with one correction. My Grub did not recognize <code>/boot/memdisk</code> or
+<code>/boot/*.img</code>  as  valid   files.  The  correct  filenames  are   <code>/memdisk</code>  and  /*.img`
+respectively.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Theron and ACT++ for Concurrent C++ with Actors]]></title>
