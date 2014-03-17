@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu 12.04 | blah!]]></title>
   <link href="http://SonnyRajagopalan.github.io/blog/categories/ubuntu-12-dot-04/atom.xml" rel="self"/>
   <link href="http://SonnyRajagopalan.github.io/"/>
-  <updated>2014-03-17T19:16:22-04:00</updated>
+  <updated>2014-03-17T19:17:45-04:00</updated>
   <id>http://SonnyRajagopalan.github.io/</id>
   <author>
     <name><![CDATA[Sonny Rajagopalan]]></name>
@@ -32,6 +32,8 @@ specific method that  worked is titled <em>Upgrading the BIOS  using Dell&rsquo;
 &ldquo;syslinux memdisk&rdquo;</em>, with one correction. My Grub did not recognize <code>/boot/memdisk</code> or
 <code>/boot/*.img</code>  as  valid   files.  The  correct  filenames  are   <code>/memdisk</code>  and  <code>/*.img</code>
 respectively.</p>
+
+<p>Oh, and the BIOS update did not fix the fan noise.</p>
 ]]></content>
   </entry>
   
