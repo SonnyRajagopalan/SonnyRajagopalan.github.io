@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A quick study of chunking techniques in RAG pipelines</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="page-nav">
+        <a href="index.html">← Back to articles</a>
+      </nav>
+
+      <article class="content">
+        <header>
+          <h1>A quick study of chunking techniques in RAG pipelines</h1>
+        </header>
+
+        <section>
+          <h2>Introduction</h2>
+          <p>
+            Retrieval augmented generation (RAG) extends an LLM’s knowledge by preprocessing and indexing a document corpus. At query time, the system retrieves relevant passages, appends them to the user prompt, and sends the combined input to the model. This lets you work with effectively unlimited source data, rather than being constrained by the model’s context window.
+          </p>
+          <p>
+            RAG is not limited to text. Multimodal RAG can also compare audio, images, or other records against a corpus. A vector database stores embeddings of document chunks and ranks them by similarity to the user query, often using cosine similarity. The top-K results are included with the query to provide context to the LLM.
+          </p>
+          <figure>
+            <img src="image-1.png" alt="RAG workflow" />
+            <figcaption>RAG workflow overview</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>What is chunking and why does it matter?</h2>
+          <p>
+            Chunking is the process of splitting documents into pieces before embedding them. The right chunking strategy is essential for a good RAG workflow.
+          </p>
+          <p>Key points:</p>
+          <ul>
+            <li>Chunk size is independent of document length.</li>
+            <li>Chunk sizes can vary within a single document.</li>
+            <li>Smaller chunks improve retrieval precision but can lose context and produce incoherent answers.</li>
+            <li>Larger chunks preserve context but may dilute relevance and increase token usage.</li>
+          </ul>
+          <p>The best chunking strategy balances precision, context, and cost.</p>
+        </section>
+
+        <section>
+          <h2>Types of chunking</h2>
+          <p>Common chunking approaches include:</p>
+          <ol>
+            <li>Size-based chunking</li>
+            <li>Linguistic chunking</li>
+            <li>Structure-aware chunking</li>
+            <li>Context-preserving chunking</li>
+            <li>Adaptive chunking</li>
+            <li>Specialized chunking</li>
+          </ol>
+          <p>
+            A hybrid strategy can combine these approaches. In some cases, an LLM can also help generate better chunks, especially for high-value content such as financial reports or compliance documents.
+          </p>
+        </section>
+
+        <section>
+          <h2>Chunking in common RAG frameworks</h2>
+          <h3>LlamaIndex</h3>
+          <p>
+            LlamaIndex calls chunking node parsing and provides several parsers out of the box:
+          </p>
+          <ul>
+            <li>Simple</li>
+            <li>Recursive</li>
+            <li>HTMLNodeParser</li>
+            <li>JSONNodeParser</li>
+            <li>MarkdownNodeParser</li>
+          </ul>
+
+          <h3>LangChain</h3>
+          <p>
+            LangChain calls chunking "splitting" and supports several standard splitters:
+          </p>
+          <ul>
+            <li>Text</li>
+            <li>Recursive</li>
+            <li>HTML</li>
+            <li>Code</li>
+            <li>Recursive JSON</li>
+            <li>Semantic splitting</li>
+            <li>Token-based splitting</li>
+          </ul>
+
+          <h3>Custom chunking</h3>
+          <p>Both frameworks support custom chunking logic:</p>
+          <ul>
+            <li>In LlamaIndex, subclass the <code>NodeParser</code> base class.</li>
+            <li>In LangChain, subclass <code>BaseDocumentTransformer</code>.</li>
+          </ul>
+          <p>
+            Custom chunking lets you adapt to your own data structures and retrieval needs.
+          </p>
+        </section>
+      </article>
+
+      <footer>
+        <p>
+          © <span id="year"></span> Sonny Rajagopalan ·
+          <a href="https://linkedin.com/in/sonny-rajagopalan">linkedin.com/in/sonny-rajagopalan</a>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var yearElement = document.getElementById('year');
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
+  </body>
+</html>
