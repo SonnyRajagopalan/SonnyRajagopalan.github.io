@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviving a 2012 Telecom Stack: What I Learned Fixing a Diameter Protocol Implementation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="page-nav">
+        <a href="index.html">← Back to articles</a>
+      </nav>
+
+      <article class="content">
+        <header>
+          <h1>Reviving a 2012 Telecom Stack: What I Learned Fixing a Diameter Protocol Implementation</h1>
+        </header>
+
+        <section>
+          <p>I recently spent time with a C++ Diameter protocol implementation I wrote back in 2012  for an embedded Linux telecom environment (see a small piece of it in <a href="https://github.com/SonnyRajagopalan/TimerAndCallback">here</a>). The codebase was built under serious constraints: no C++11 threading, no STL containers in shared memory, no heap allocation for hot-path objects. Just raw POSIX: <code>fork()</code>, <code>shm_open</code>, <code>sem_wait</code>, and a handwritten binary min-heap.</p>
+          <p>It was a time capsule of embedded systems design.</p>
+        </section>
+
+        <section>
+          <h2>The Architecture</h2>
+          <p>The Diameter protocol (RFC 3588) is the AAA framework behind LTE/5G core networks. It needs reliable timer scheduling — watchdog keepalives, request retransmission timers, reconnection backoffs. Back in 2012, I chose an unusual approach: the timer scheduler runs in a <strong>forked child process</strong>, not a thread (see <a href="https://stackoverflow.com/questions/9915034/c-in-linux-in-what-forked-task-context-should-a-timer-callback-execute">this SO thread</a> for when I got some pushback from the community about my design choices). Shared memory connects parent and child. A POSIX message queue delivers expiry notifications.</p>
+          <p>This buys fault isolation (a buggy timer scheduler kills only the child) and worked around broken pthreads in some 2012 toolchains. But it introduces real complexity: named semaphores for cross-process locking, shared-memory object pools, and careful initialization ordering between parent and child.</p>
+        </section>
+
+        <section>
+          <h2>What I Fixed</h2>
+          <p>I swear this worked back in 2012-I had <code>valgrind</code>-ed the whole thing! But, in 2026, the timer heap had a race condition. The <code>TimerTask</code> child and the parent's message queue thread both modified the min-heap array and its element counter without synchronization. Under load — 500 timers firing 10 times each — only 900 of 5,000 expected fires would complete, with jitter as bad as -12,000ms. Adding a cross-process heap semaphore fixed it: 10,000/10,000 fires, zero lost, zero early.</p>
+          <p>I also fixed a number of readability things--I had used <code>cout</code>s a lot--cleaned things up. I also had a number of tests that made sense back in 2012 as a project I learned a lot from--cleaned those not so useful tests now</p>
+          <p>I used <a href="https://opencode.ai">opencode.ai</a> extensively with <a href="https://github.com/DeusData/codebase-memory-mcpcodebase-memory-mcp">codebase-memory-mcp</a> and also introduced <a href="https://www.npmjs.com/package/@modelcontextprotocol/server-memory">MCP/Server memory</a> later (more on this below). It was my first project with opencode and I think I like using it a lot more than pi.dev or cursor cli.</p>
+        </section>
+
+        <section>
+          <h2>What I Built</h2>
+          <p>I turned the repo into a <a href="https://github.com/SonnyRajagopalan/ABasicDiameterImplementationInCPP">study on timer management</a> with:</p>
+          <ul>
+            <li><strong>A timer accuracy stress tool</strong> that measures microsecond jitter with statistical reporting (min/max/mean/stddev/p50/p90/p95/p99) and direction breakdown (early/on-time/late).</li>
+            <li><strong>Architecture Decision Records (ADRs)</strong> — five documents explaining why <code>fork</code> over threads, why a min-heap over a timer wheel, why shared-memory pools, why POSIX message queues, and why the State pattern for the peer FSM.</li>
+            <li><strong>Mermaid diagrams</strong> — sequence diagrams for the timer fire lifecycle, class diagrams for the shared-memory objects, and a state machine diagram for the Diameter peer FSM.</li>
+            <li><strong>A Dockerfile</strong> for reproducible builds (Ubuntu 22.04, multi-stage).</li>
+            <li><strong>Unit tests</strong> — a MemoryPool test (22 tests covering allocation, index round-trip, exhaustion, and cross-process fork access) and an FSM state test (25 tests covering state names, singleton identity, event strings, and peer state values).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>The MCP Integration</h2>
+          <p>This was also an experiment in using AI coding harnesses. The repo integrates with two MCP toolkits:</p>
+          <p><strong>codebase-memory</strong> indexes the entire codebase into a Neo4j knowledge graph. You can run queries like <code>search_graph(name_pattern=".*Timer.*")</code> to find all timer-related classes, or <code>trace_path(function_name="Timer::scheduleOneShotAtTimeout")</code> to follow the call chain from scheduling to heap insertion to cross-process notification.</p>
+          <p><strong>conversational-memory</strong> logs test sessions as knowledge graph entities. After <code>python test/runner.py --all</code>, results are stored with timestamps, pass/fail counts, and jitter statistics. You can query the history later: <code>search_nodes(query="test session")</code>.</p>
+          <p>The <a href="https://github.com/SonnyRajagopalan/ABasicDiameterImplementationInCPP/blob/main/TUTORIAL.md">TUTORIAL.md</a> walks through each tool step by step.</p>
+        </section>
+
+        <section>
+          <h2>What This Taught Me</h2>
+          <p>The 2012 design isn't wrong — it was right for its constraints. The <code>fork</code>+shared memory pattern gives genuine fault isolation that threads cannot match. The binary min-heap in contiguous shared memory is simpler and more debuggable than a timer wheel when you're managing ≤1024 timers. The memory pools eliminate heap fragmentation in a process meant to run for months.</p>
+          <p>But the modern alternatives are compelling too: <code>timerfd_create()</code> + <code>epoll</code> replaces the entire fork+shm+mq machinery with a single file descriptor. <code>io_uring</code> can submit timer requests directly to the kernel. A thread-backed <code>std::priority_queue</code> with <code>std::condition_variable</code> replaces 500 lines of POSIX IPC with 50 lines of standard library.</p>
+          <p>The repo is at <strong><a href="https://github.com/SonnyRajagopalan/ABasicDiameterImplementationInCPP">github.com/SonnyRajagopalan/ABasicDiameterImplementationInCPP</a></strong> — I hope it serves as a useful study for anyone interested in timer management, embedded systems architecture, or AI-assisted code exploration.</p>
+        </section>
+      </article>
+
+      <section>
+        <h2>Do you have an opinion?</h2>
+        <p>If you have any thoughts on this activity, do let me know!</p>
+      <footer>
+        <p>
+          © <span id="year"></span> Sonny Rajagopalan ·
+          <a href="https://linkedin.com/in/sonny-rajagopalan">linkedin.com/in/sonny-rajagopalan</a>
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var yearElement = document.getElementById('year');
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
+  </body>
+</html>
